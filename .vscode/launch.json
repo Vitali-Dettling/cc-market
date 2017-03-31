@@ -22,13 +22,6 @@
             "port": 5858,
             "console": "internalConsole",
             "internalConsoleOptions": "neverOpen"
-        },
-        {
-            "name": "Attach Debugger",
-            "type": "node",
-            "request": "attach",
-            "restart": true,
-            "port": 5858
         }
     ]
 }

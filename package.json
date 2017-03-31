@@ -4,8 +4,7 @@
   "description": "MEAN Stack Demo",
   "main": "server.js",
   "scripts": {
-    "test": "test",
-    "debug": "node --nolazy --debug-brk=5858 server.js"
+    "test": "test"
   },
   "author": "",
   "license": "ISC",

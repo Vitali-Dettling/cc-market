@@ -29,6 +29,3 @@ app.use('/api', tasks);
 app.listen(port, function(){
     console.log('Server started on port ' + port);
 });
-
-//TODO: Do I need this?
-// module.exports = app;
