@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    //nodemode debugging:
+    //https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch via nodemon",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "nodemon",
+            "runtimeArgs": [
+                "--debug=5858"
+            ],
+            "program": "${workspaceRoot}/server.js",
+            "restart": true,
+            "port": 5858,
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Attach Debugger",
+            "type": "node",
+            "request": "attach",
+            "restart": true,
+            "port": 5858
+        }
+    ]
+}
