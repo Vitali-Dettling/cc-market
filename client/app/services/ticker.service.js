@@ -9,22 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var task_service_1 = require('./services/task.service');
-var test_service_1 = require('./services/test.service');
-var ticker_service_1 = require('./services/ticker.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+var TickerService = (function () {
+    function TickerService(http) {
+        this.http = http;
+        console.log('Ticker Service Initialized...');
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'cc-app',
-            templateUrl: 'app.component.html',
-            providers: [task_service_1.TaskService, test_service_1.TestService, ticker_service_1.TickerService]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    TickerService.prototype.getTickers = function () {
+        return this.http.get('/api/ticker')
+            .map(function (res) { return res.json(); });
+    };
+    TickerService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], TickerService);
+    return TickerService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.TickerService = TickerService;
+//# sourceMappingURL=ticker.service.js.map

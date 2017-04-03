@@ -9,22 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var task_service_1 = require('./services/task.service');
-var test_service_1 = require('./services/test.service');
-var ticker_service_1 = require('./services/ticker.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var ticker_service_1 = require('../../services/ticker.service');
+var TickersComponent = (function () {
+    function TickersComponent(tickerService) {
+        var _this = this;
+        this.tickerService = tickerService;
+        this.tickerService.getTickers()
+            .subscribe(function (tickers) {
+            _this.tickers = tickers;
+        });
     }
-    AppComponent = __decorate([
+    TickersComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'cc-app',
-            templateUrl: 'app.component.html',
-            providers: [task_service_1.TaskService, test_service_1.TestService, ticker_service_1.TickerService]
+            selector: 'tickers',
+            templateUrl: 'tickers.component.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [ticker_service_1.TickerService])
+    ], TickersComponent);
+    return TickersComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.TickersComponent = TickersComponent;
+//# sourceMappingURL=tickers.component.js.map
