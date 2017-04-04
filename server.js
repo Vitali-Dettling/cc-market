@@ -1,13 +1,36 @@
+"use strict";
+
+var xsjs  = require("sap-xsjs");
+var xsenv = require("sap-xsenv");
+var port  = process.env.PORT || 3000;
+var server = require('http').createServer();
+var node = require("./cc-market");
+
+var options = xsjs.extend({
+	//anonymous : true, // remove to authenticate calls
+	redirectUrl : "/index.xsjs"
+});
+
+// configure HANA
+options = xsjs.extend(options, xsenv.getServices({ hana: {tag: "hana"} }));
+// configure UAA
+options = xsjs.extend(options, xsenv.getServices({ uaa: {tag: "xsuaa"} }));
+
+//Add XSJS to the base app
+var xsjsApp = xsjs(options);
+
 var express = require('express');
+var app = express();
+
+app.use("/node", node());
+app.use(xsjsApp);
+
 var path = require('path');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
-
-var port = 3000;
-var app = express();
 
 //View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +49,7 @@ app.use(logger('dev'));
 app.use('/', index);
 app.use('/api', tasks);
 
-app.listen(port, function(){
-    console.log('Server started on port ' + port);
+server.on('request', app);
+server.listen(port, function () {
+    console.log("HTTP Server: " + server.address().port );
 });
