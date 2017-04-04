@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 //Body Parser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(logger('dev'));
 
