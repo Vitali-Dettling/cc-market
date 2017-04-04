@@ -1,0 +1,28 @@
+{
+  "run": [
+    {
+      "filePath": "/views/index.html",
+      "previewMode": 0,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": ""
+        }
+      ],
+      "hashParameter": "",
+      "backendSystem": [],
+      "urlParametersNotNeeded": false,
+      "_metadata": {
+        "id": 8353556,
+        "runnerId": "webapprunner",
+        "displayName": "server,js",
+        "lastRunTimeStamp": 1491298748113
+      }
+    }
+  ]
+}
