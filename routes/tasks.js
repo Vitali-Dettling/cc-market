@@ -17,16 +17,17 @@ var db = mongojs('mongodb://localhost:27017/demo',['tasks']);
 router.get('/ticker', function(req, res, next){
 
     krakenCon.ticker(function(err, data){
+        console.log("err: " + err + " data : " + data)
         if(err){
             res.send(err);
         }else{
-            res.json([data.result]);
+            res.json(data.result);
         }
     });
 });     
 
 router.get('/test', function(req, res, next) {
-        res.json({title: "Hello World!"});
+        res.json([{title: "Hello World!"}]);
 });
 
 //////////////// Test scenarios below ////////////////

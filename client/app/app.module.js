@@ -15,14 +15,13 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var tasks_component_1 = require('./components/tasks/tasks.component');
 var tests_component_1 = require('./components/tests/tests.component');
-var tickers_component_1 = require('./components/tickers/tickers.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, tests_component_1.TestsComponent, tasks_component_1.TasksComponent, tickers_component_1.TickersComponent],
+            declarations: [app_component_1.AppComponent, tests_component_1.TestsComponent, tasks_component_1.TasksComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
