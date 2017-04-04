@@ -1,3 +1,15 @@
+"use strict";
+
+var xsjs  = require("sap-xsjs");
+var xsenv = require("sap-xsenv");
+var port  = process.env.PORT || 3000;
+var server = require('http').createServer();
+
+var options = xsjs.extend({
+	//anonymous : true, // remove to authenticate calls
+	redirectUrl : "/index.xsjs"
+});
+
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -6,7 +18,7 @@ var logger = require('morgan');
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
 
-var port = 3000;
+// var port = 3000;
 var app = express();
 
 //View Engine
@@ -19,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 //Body Parser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(logger('dev'));
 
